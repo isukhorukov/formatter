@@ -23,13 +23,23 @@ public class Formatter {
         while (i < from.length()) {
             if ((int)from.charAt(i) == OPEN_BRACKET) {
                 i++;
-                while ((int)from.charAt(i) == SPACE || 
-                       (int)from.charAt(i) == TRANSFER) {
+                while ((int)from.charAt(i) == SPACE || (int)from.charAt(i) == TRANSFER) {
                     from.deleteCharAt(i);
                 }
                 from.insert(i, (char)TRANSFER);
                 i++;
                 from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
+                i++;
+            }
+            if ((int)from.charAt(i) == SEMICOLON) {
+                i++;
+                while ((int)from.charAt(i) == SPACE || (int)from.charAt(i) == TRANSFER) {
+                    from.deleteCharAt(i);
+                }
+                from.insert(i, (char)TRANSFER);
+                i++;
+                from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
+                i++;
             }
             i++;
         }        
