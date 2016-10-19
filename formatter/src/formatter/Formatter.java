@@ -12,7 +12,7 @@ public class Formatter {
         int ch;
         
        
-        String charCode = "\n";
+        String charCode = "{";
         System.out.println((int)charCode.charAt(0));
         
    //     while ((int)space.charAt(i) == SPACE || 
