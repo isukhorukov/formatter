@@ -15,11 +15,7 @@ public class Formatter {
         String s = "public Class A { static int a = 5; static int b = 2; }";
         StringBuilder from = new StringBuilder(s);
         int i = 0;
-        
-//        int ch;    
-//        String charCode = "}";
-//        System.out.println((int)charCode.charAt(0));
-      
+           
         while (i < from.length()) {
             if ((int)from.charAt(i) == OPEN_BRACKET) {
                 i++;
