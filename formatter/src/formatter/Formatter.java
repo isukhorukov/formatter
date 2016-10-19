@@ -36,10 +36,15 @@ public class Formatter {
                 while ((int)from.charAt(i) == SPACE || (int)from.charAt(i) == TRANSFER) {
                     from.deleteCharAt(i);
                 }
-                from.insert(i, (char)TRANSFER);
-                i++;
-                from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
-                i++;
+                if ((int)from.charAt(i) == CLOSE_BRACKET) {
+                    from.insert(i, (char)TRANSFER);
+                    i++;
+                } else {
+                    from.insert(i, (char)TRANSFER);
+                    i++;
+                    from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
+                    i++;
+                }
             }
             i++;
         }        
