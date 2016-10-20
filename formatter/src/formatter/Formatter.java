@@ -16,8 +16,8 @@ public class Formatter {
         StringBuilder from = new StringBuilder(s);
         int i       = 0;
         int depth   = 0;
-        boolean out = false; 
-           
+
+          
         while (i < from.length()) {
             //open bracket case
             if ((int)from.charAt(i) == OPEN_BRACKET) {
@@ -30,7 +30,7 @@ public class Formatter {
                 i++;
                 for (int j = 0; j < depth; j++) {
                     from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
-                    i++;
+                
                 }
             }
             //semicolon case
@@ -39,41 +39,36 @@ public class Formatter {
                 while ((int)from.charAt(i) == SPACE || (int)from.charAt(i) == TRANSFER) {
                     from.deleteCharAt(i);
                 }
-                if ((int)from.charAt(i) == CLOSE_BRACKET) {
-                    from.insert(i, (char)TRANSFER);
-                    i++;
-                    for (int j = 0; j < depth - 1; j++) {
-                        from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
-                        i++;
-                    }
+               if ((int)from.charAt(i) == CLOSE_BRACKET) {
+                 
                     depth--;
-                    out = true;
-                } else {
+
+                } else { 
+                    
                     from.insert(i, (char)TRANSFER);
                     i++;
                     for (int j = 0; j < depth; j++) {
                         from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
-                        i++;
+                      
                     }
                 }
             }
             //close bracket case
-           /* if ( ((int)from.charAt(i) == CLOSE_BRACKET) && (depth > 0) && out ) {
-                i--;
-                while ((int)from.charAt(i) == SPACE || (int)from.charAt(i) == TRANSFER) {
-                    from.deleteCharAt(i);
-                    i--;
-                }
-                for (int j = 0; j < depth; j++) {
-                    from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
-                    i++;
-                }
+            if ( ((int)from.charAt(i) == CLOSE_BRACKET) ) {
+
                 from.insert(i, (char)TRANSFER);
-                System.out.println(depth);
-            }*/
+                    i++;
+                    for (int j = 0; j < depth; j++) {
+                        from.insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE).insert(i, (char)SPACE);
+                      
+                    }     
+                    depth--;
+                    i+=5;
+             //   System.out.println(i);
+            }
             i++;
         }        
-        
+   //     System.out.println(i);
         System.out.println(from);
         
     }
