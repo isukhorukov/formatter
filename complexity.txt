@@ -1,0 +1,6 @@
+algorithm complexity ~ O((1 + 5 * k) * n)
+where 'k' is the total number of closing brackets and semicolons,
+and 'n' is the length of the input string.
+
+Total time: 0.944s
+(first build: ~5s)
